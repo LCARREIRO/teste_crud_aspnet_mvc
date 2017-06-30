@@ -1,0 +1,80 @@
+﻿@model TesteScription.Dominio.Modelo.UsuarioModelo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login | Agenda de Contatos</title>
+
+    <!--Scripts do JQuery-->
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <!--Scripts do Bootstrap e Bootbox-->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+
+    <!--Importamos as bibliotecas de CSS-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.united.min.css" rel="stylesheet" />
+
+    <!--Importamos o Script de Validacao-->
+    <script src="~/Scripts/validacoes.js"></script>
+
+</head>
+<body>
+    <header>
+        <section>
+            @if (TempData["Mensagem"] != null)
+            {
+                @Html.Partial("_PartialMensagem");
+            }
+        </section>
+
+        <h1>Login | Agenda de Contatos</h1>
+    </header>
+
+    <section class="container">
+        <fieldset>
+            <legend>Login</legend>
+
+            @using (Html.BeginForm())
+            {
+                <div class="col-lg-9">
+                    <div class="col-lg-4">
+                        @Html.LabelFor(x => x.Login)
+                        @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="col-lg-4">
+                        @Html.LabelFor(x => x.Senha)
+                        @Html.PasswordFor(x => x.Senha, new { @class = "form-control" })
+                        <div>
+                            <input type="submit" value="Entrar" id="entrar" title="Clique para entrar no sistema" class="btn btn-success" />
+                            <input type="reset" value="Limpar" id="limpar" title="Clique para limpar" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </fieldset>
+
+    </section>
+
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p>&copy; <strong>Scription|</strong> Todos os direitos reservados.</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

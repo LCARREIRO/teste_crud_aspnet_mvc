@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!--Scripts do JQuery-->
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.1.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <!--Scripts do Bootstrap e Bootbox-->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+
+    <!--Importamos as bibliotecas de CSS-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.united.min.css" rel="stylesheet" />
+
+    <!--Importamos o Script de Validacao-->
+    <script src="~/Scripts/validacoes.js"></script>
+
+    <style>
+        body {
+            padding-bottom: 3cm;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="">Scription</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Listar", "Listar", "Contato")</li>
+                        <li>@Html.ActionLink("Cadastrar", "Cadastrar", "Contato")</li>
+
+                        @*Inserimos o link LOGOUT com Icones*@
+                        <li>
+                            <a href="@Url.Content("~/Contato/Logout")">
+                                <img src="~/Content/Imagens/Logout.png" />
+                                Sair
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <section>
+            @if (TempData["Mensagem"] != null)
+            {
+                @Html.Partial("_PartialMensagem");
+            }
+        </section>
+        <h1>@ViewBag.Title</h1>
+    </header>
+    <section class="container">
+        @RenderBody()
+    </section>
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p>&copy; <strong>2017 | Teste Scripton |</strong> Todos os direitos reservados.</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

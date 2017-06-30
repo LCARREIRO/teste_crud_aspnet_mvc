@@ -1,0 +1,51 @@
+﻿@model TesteScription.Dominio.Modelo.ContatoModelo
+
+@{
+    ViewBag.Title = "Cadastrar Contatos";
+    Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { autofocus = "autofocus", placeholder = "Informe o nome", required = "required", title = "Informe o nome" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefone, new { placeholder = "Informe o telefone", required = "required", title = "Informe o telefone" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { placeholder = "Informe seu e-mail pessoal", required = "required", title = "Informe o e-mail" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" id="salvar" title="Clique para salvar" class="btn btn-success" />
+                <input type="reset" value="Limpar" id="limpar" title="Clique para limpar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+    <div>
+        @Html.ActionLink("Restornar para lista de contatos", "Listar", "Contato")
+    </div>
+}
+
+

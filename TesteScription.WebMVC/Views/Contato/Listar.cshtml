@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TesteScription.Dominio.Modelo.ContatoModelo>
+
+
+@{
+    ViewBag.Title = "Lista de Contatos";
+    Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <br />
+    <table class="table">
+        @Html.Label("Buscar contato  ")
+        @Html.TextBox("Buscar")
+        <button type="submit" id="pesquisar" title="Clique aqui para pesquisar" class="btn btn-primary btn-xs">Buscar</button>
+    </table>
+    <br />
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <img src="~/Content/Imagens/Editar.png" />
+                @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
+                <img src="~/Content/Imagens/Deletar.png" />
+                @Html.ActionLink("Excluir", "Deletar", new { id = item.ID }) |
+            </td>
+        </tr>
+    }
+
+</table>
