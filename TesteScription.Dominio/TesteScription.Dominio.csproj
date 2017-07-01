@@ -49,8 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidade\ContatoEntidade.cs" />
-    <Compile Include="Entidade\UsuarioEntidade.cs" />
+    <Compile Include="Mapeamento\ContatoMap.cs" />
+    <Compile Include="Mapeamento\UsuarioMap.cs" />
     <Compile Include="Modelo\ClasseId.cs" />
     <Compile Include="Modelo\ContatoModelo.cs" />
     <Compile Include="Modelo\UsuarioModelo.cs" />

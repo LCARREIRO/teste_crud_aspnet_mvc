@@ -9,10 +9,10 @@ using TesteScription.Dominio.Modelo;
 
 namespace TesteScription.Dominio.Entidade
 {
-    public class ContatoEntidade : EntityTypeConfiguration<ContatoModelo>
+    public class ContatoMap : EntityTypeConfiguration<ContatoModelo>
     {
 
-        public ContatoEntidade()
+        public ContatoMap()
         {
             ToTable("TB_CONTATOS");
 

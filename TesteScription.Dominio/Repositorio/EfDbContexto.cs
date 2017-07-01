@@ -25,8 +25,8 @@ namespace TesteScription.Dominio.Repositorio
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<EfDbContexto>());
-            modelBuilder.Configurations.Add(new ContatoEntidade());
-            modelBuilder.Configurations.Add(new UsuarioEntidade());
+            modelBuilder.Configurations.Add(new ContatoMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
         }
     }
 }

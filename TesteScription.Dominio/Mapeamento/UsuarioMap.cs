@@ -9,9 +9,9 @@ using TesteScription.Dominio.Modelo;
 
 namespace TesteScription.Dominio.Entidade
 {
-    public class UsuarioEntidade : EntityTypeConfiguration<UsuarioModelo>
+    public class UsuarioMap : EntityTypeConfiguration<UsuarioModelo>
     {
-        public UsuarioEntidade()
+        public UsuarioMap()
         {
             ToTable("TB_USUARIOS");
 

@@ -8,8 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace TesteScription.Dominio.Modelo
 {
     public class ClasseId
-    {
-        [Display(Name = "Código")]
+    {        
         public int ID { get; set; }
     }
 }
