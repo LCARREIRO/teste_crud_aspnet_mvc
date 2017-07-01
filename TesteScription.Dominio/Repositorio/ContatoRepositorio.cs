@@ -27,7 +27,8 @@ namespace TesteScription.Dominio.Repositorio
 
             return dadosBanco;
         }
-
+       
+        
         public ContatoModelo Find(int id)
         {
             var dadosBanco = _contexto.CONTATOS.Find(id);

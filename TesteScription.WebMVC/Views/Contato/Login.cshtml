@@ -12,7 +12,8 @@
     <title>Login | Agenda de Contatos</title>
 
     <!--Scripts do JQuery-->
-    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script src="~/Scripts/jquery.maskedinput.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -38,37 +39,35 @@
                 @Html.Partial("_PartialMensagem");
             }
         </section>
-
-        <h1>Login | Agenda de Contatos</h1>
     </header>
 
-    <section class="container">
+    <section>
         <fieldset>
-            <legend>Login</legend>
 
+            <legend>Login</legend>
             @using (Html.BeginForm())
             {
-                <div class="col-lg-9">
-                    <div class="col-lg-4">
-                        @Html.LabelFor(x => x.Login)
-                        @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+                <div class="container">
+                    <div class="col-lg-10">
+                        <div class="col-lg-4">
+                            @Html.LabelFor(x => x.Login)
+                            @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="col-lg-4">
-                        @Html.LabelFor(x => x.Senha)
-                        @Html.PasswordFor(x => x.Senha, new { @class = "form-control" })
-                        <div>
-                            <input type="submit" value="Entrar" id="entrar" title="Clique para entrar no sistema" class="btn btn-success" />
-                            <input type="reset" value="Limpar" id="limpar" title="Clique para limpar" class="btn btn-default" />
+                    <div class="col-lg-10">
+                        <div class="col-lg-4">
+                            @Html.LabelFor(x => x.Senha)
+                            @Html.PasswordFor(x => x.Senha, new { @class = "form-control" })
+                            <div class="btn btn-group-sm">
+                                <input type="submit" value="Entrar" id="entrar" title="Clique para entrar no sistema" class="btn btn-success" />
+                                <input type="reset" value="Limpar" id="limpar" title="Clique para limpar" class="btn btn-default" />
+                            </div>
                         </div>
                     </div>
                 </div>
             }
-        </fieldset>
-
+            </fieldset>
     </section>
-
     <footer>
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">

@@ -15,9 +15,20 @@ namespace TesteScription.Dominio.Repositorio
 
         public bool ValidarLogin(UsuarioModelo dadosTela)
         {
-            bool login;
+            var query = (from usuario in _contexto.USUARIOS
+                         where usuario.Login == dadosTela.Login &&
+                         usuario.Senha == dadosTela.Senha
+                         select usuario).SingleOrDefault();
 
-            return login = true;
+            if(query == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
         public IEnumerable<UsuarioModelo> GetAll()
         {
