@@ -12,9 +12,9 @@ using TesteScription.Dominio.Entidade;
 
 namespace TesteScription.Dominio.Repositorio
 {
-    public class EfDbContexto : DbContext
+    public class Contexto : DbContext
     {
-        public EfDbContexto()
+        public Contexto()
             : base(ConfigurationManager.ConnectionStrings["TesteDataBase"].ConnectionString)
         {
         }
@@ -24,7 +24,7 @@ namespace TesteScription.Dominio.Repositorio
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<EfDbContexto>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<Contexto>());
             modelBuilder.Configurations.Add(new ContatoMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
         }

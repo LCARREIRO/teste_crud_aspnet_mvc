@@ -7,6 +7,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <hr />
@@ -16,14 +17,15 @@
             @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nome, new { autofocus = "autofocus", placeholder = "Informe o nome", required = "required", title = "Informe o nome" })
+                @Html.ValidationMessageFor(model => model.Nome)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Telefone, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Telefone, new { placeholder = "Informe o telefone", required = "required", title = "Informe o telefone" })
-
+                @Html.EditorFor(model => model.Telefone, new { placeholder = "Informe o telefone", title = "Informe o telefone", required = "required", id = "Telefone" })
+                @Html.ValidationMessageFor(model => model.Telefone)
             </div>
         </div>
 
@@ -31,6 +33,7 @@
             @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { placeholder = "Informe seu e-mail pessoal", required = "required", title = "Informe o e-mail" })
+                @Html.ValidationMessageFor(model => model.Email)
 
             </div>
         </div>
@@ -42,10 +45,14 @@
             </div>
         </div>
     </div>
-
-    <div>
-        @Html.ActionLink("Restornar para lista de contatos", "Listar", "Contato")
-    </div>
 }
+
+<div>
+    @Html.ActionLink("Restornar para lista de contatos", "Listar", "Contato")
+</div>
+
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 

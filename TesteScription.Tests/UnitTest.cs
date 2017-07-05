@@ -12,7 +12,7 @@ namespace TesteScription.Tests
         [TestMethod]
         public void CriarUsuarioNoBanco()
         {
-            var _contexto = new EfDbContexto();
+            var _contexto = new Contexto();
 
             var usuario = new UsuarioModelo();
             usuario.Login = "admin";
@@ -26,7 +26,7 @@ namespace TesteScription.Tests
         [TestMethod]
         public void CriarContatoNoBanco()
         {
-            var _contexto = new EfDbContexto();
+            var _contexto = new Contexto();
 
             var novoContato = new ContatoModelo()
             {

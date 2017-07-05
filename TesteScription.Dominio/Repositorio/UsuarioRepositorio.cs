@@ -11,7 +11,7 @@ namespace TesteScription.Dominio.Repositorio
 {
     public class UsuarioRepositorio
     {
-        private readonly EfDbContexto _contexto = new EfDbContexto();
+        private readonly Contexto _contexto = new Contexto();
 
         public bool ValidarLogin(UsuarioModelo dadosTela)
         {

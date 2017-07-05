@@ -56,7 +56,7 @@
     <Compile Include="Modelo\UsuarioModelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\ContatoRepositorio.cs" />
-    <Compile Include="Repositorio\EfDbContexto.cs" />
+    <Compile Include="Repositorio\Contexto.cs" />
     <Compile Include="Repositorio\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -12,7 +12,6 @@
     <title>Login | Agenda de Contatos</title>
 
     <!--Scripts do JQuery-->
-
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script src="~/Scripts/jquery.maskedinput.min.js"></script>
@@ -40,33 +39,38 @@
             }
         </section>
     </header>
-
     <section>
-        <fieldset>
-
-            <legend>Login</legend>
-            @using (Html.BeginForm())
-            {
-                <div class="container">
-                    <div class="col-lg-10">
-                        <div class="col-lg-4">
-                            @Html.LabelFor(x => x.Login)
-                            @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="col-lg-4">
-                            @Html.LabelFor(x => x.Senha)
-                            @Html.PasswordFor(x => x.Senha, new { @class = "form-control" })
-                            <div class="btn btn-group-sm">
-                                <input type="submit" value="Entrar" id="entrar" title="Clique para entrar no sistema" class="btn btn-success" />
-                                <input type="reset" value="Limpar" id="limpar" title="Clique para limpar" class="btn btn-default" />
-                            </div>
-                        </div>
+        @using (Html.BeginForm())
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="span12" style="text-align:center; margin: 0 auto;">
+                        <form class="form-horizontal" style="width: 400px; margin: 0 auto;" method="post" action="/form/">
+                            <br />
+                            <fieldset>                                
+                                <legend>Login</legend>
+                                <div class="control-group">
+                                    <label class="control-label" for="id_username">Usuario</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(x => x.Login, new { @class = "input-large", name = "username", maxlength = "100", title = "Informe o usuario", type = "text", id = "usuario"})
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="id_password">Senha</label>
+                                    <div class="controls">
+                                        @Html.PasswordFor(x => x.Senha, new { @class = "input-large", name = "password", maxlength = "100", title = "Informe a senha", type = "password", id = "password" })
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="submit" value="Entrar" id="entrar" title="Clique para entrar no sistema" class="btn btn-success btn-xs" />
+                                    <input type="reset" value="Limpar" id="limpar" title="Clique para limpar" class="btn btn-default btn-xs " />
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-            }
-            </fieldset>
+            </div>
+        }
     </section>
     <footer>
         <nav class="navbar navbar-default navbar-fixed-bottom">

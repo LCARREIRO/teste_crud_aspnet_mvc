@@ -12,16 +12,16 @@ namespace TesteScription.Dominio.Repositorio
 {
     public class ContatoRepositorio
     {
-        private readonly EfDbContexto _contexto = new EfDbContexto();
+        private readonly Contexto _contexto = new Contexto();
 
-        public IEnumerable<ContatoModelo> GetAll()
+        public IEnumerable<ContatoModelo> ObterTodos()
         {
             var dadosBanco = _contexto.CONTATOS.ToList();
 
             return dadosBanco;
         }
 
-        public IEnumerable<ContatoModelo> GetAll(Expression<Func<ContatoModelo, bool>> Predicate)
+        public IEnumerable<ContatoModelo> ObterTodos(Expression<Func<ContatoModelo, bool>> Predicate)
         {
             var dadosBanco = _contexto.CONTATOS.Where(Predicate).ToList();
 
@@ -29,7 +29,7 @@ namespace TesteScription.Dominio.Repositorio
         }
        
         
-        public ContatoModelo Find(int id)
+        public ContatoModelo Buscar(int id)
         {
             var dadosBanco = _contexto.CONTATOS.Find(id);
 
@@ -37,15 +37,17 @@ namespace TesteScription.Dominio.Repositorio
         }
 
 
-        public void Save(ContatoModelo contato)
+        public void Salvar(ContatoModelo contato)
         {
+            var contatoMod = new ContatoModelo();
+
             if (contato.ID == 0)
             {
                 _contexto.CONTATOS.Add(contato);
             }
             else
             {
-                ContatoModelo contatoMod = _contexto.CONTATOS.Find(contato.ID);
+                contatoMod = _contexto.CONTATOS.Find(contato.ID);
 
                 contatoMod.Nome = contato.Nome;
                 contatoMod.Telefone = contato.Telefone;
@@ -54,7 +56,7 @@ namespace TesteScription.Dominio.Repositorio
             _contexto.SaveChanges();
         }
 
-        public void Delete(ContatoModelo contato)
+        public void Excluir(ContatoModelo contato)
         {
             _contexto.CONTATOS.Remove(contato);
             _contexto.SaveChanges();

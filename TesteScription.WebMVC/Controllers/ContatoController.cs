@@ -25,18 +25,19 @@ namespace TesteScription.WebMVC.Controllers
             try
             {
                 dbContato = new ContatoRepositorio();
-                dbContato.Save(dadosTela);
+                dbContato.Salvar(dadosTela);
 
                 TempData.Add("Mensagem", "Contato cadastrado com sucesso!");
 
                 return RedirectToAction("Listar");
             }
 
-            catch (Exception erro)
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
+                Console.ReadLine();
                 TempData.Add("Mensagem", "Erro ao cadastrar!");
-
+                
                 return View();
             }
         }
@@ -51,7 +52,7 @@ namespace TesteScription.WebMVC.Controllers
                 try
                 {
                     var contato = new ContatoModelo();
-                    var query = dbContato.GetAll(c => c.Nome.ToUpper() == buscar.ToUpper());
+                    var query = dbContato.ObterTodos(c => c.Nome.ToUpper() == buscar.ToUpper());
 
                     return View(query);
 
@@ -68,7 +69,7 @@ namespace TesteScription.WebMVC.Controllers
             {
                 try
                 {
-                    var contatos = dbContato.GetAll().ToList();
+                    var contatos = dbContato.ObterTodos().ToList();
 
                     return View(contatos);
 
@@ -86,7 +87,7 @@ namespace TesteScription.WebMVC.Controllers
         public ActionResult Editar(int id)
         {
             dbContato = new ContatoRepositorio();
-            var contato = dbContato.Find(id);
+            var contato = dbContato.Buscar(id);
 
             return View(contato);
         }
@@ -97,7 +98,9 @@ namespace TesteScription.WebMVC.Controllers
             try
             {
                 dbContato = new ContatoRepositorio();
-                dbContato.Save(contato);
+                dbContato.Salvar(contato);
+
+                TempData.Add("Mensagem", "Contato atualizado com sucesso!");
 
                 return RedirectToAction("Listar");
             }
@@ -112,9 +115,9 @@ namespace TesteScription.WebMVC.Controllers
         public ActionResult Deletar(int id)
         {
             dbContato = new ContatoRepositorio();
-            var query = dbContato.Find(id);
+            var query = dbContato.Buscar(id);
 
-            dbContato.Delete(query);
+            dbContato.Excluir(query);
 
             TempData.Add("Mensagem", "Contato excluido com sucesso!");
 

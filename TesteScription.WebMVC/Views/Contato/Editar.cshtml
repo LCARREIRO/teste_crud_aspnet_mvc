@@ -4,11 +4,8 @@
     ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
 }
-
-
 @using (Html.BeginForm())
 {
-
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true)
@@ -37,8 +34,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Salvar" id="salvar" title="Clique para salvar" class="btn btn-success" />
-                <input type="reset" value="Limpar" id="limpar" title="Clique para limpar" class="btn btn-default" />
+                <input type="submit" value="Salvar" id="salvar" title="Clique para salvar" class="btn btn-success" />                
             </div>
         </div>
     </div>
